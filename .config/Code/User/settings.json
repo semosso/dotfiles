@@ -1,6 +1,9 @@
 {
-    "workbench.colorTheme": "Tomorrow",
+    "workbench.colorTheme": "Default Light+",
     "editor.minimap.enabled": false,
+    "editor.fontSize": 16,
+    "workbench.activityBar.location": "top",
+    "diffEditor.ignoreTrimWhitespace": false,
     "terminal.integrated.env.windows": {
 
     },
@@ -25,14 +28,15 @@
             "icon": "terminal-powershell"
         }
     },
+    "python.languageServer": "None",
     "[python]": {
 
         "diffEditor.ignoreTrimWhitespace": false,
         "editor.defaultColorDecorators": "never",
         "editor.formatOnType": true,
         "editor.wordBasedSuggestions": "off",
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave": true,
-        "black-formatter.showNotification": "always"
-    }
+    },
+    "python.defaultInterpreterPath": "~/projects/mit-6100l/.venv/bin/python3.14",
 }

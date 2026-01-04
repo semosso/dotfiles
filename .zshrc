@@ -1,9 +1,13 @@
 # set up the prompt; using Pure theme
-fpath+=($HOME/.zsh/pure)
+fpath+=($HOME/.config/pure)
 autoload -Uz promptinit; promptinit
-prompt pure
 PURE_CMD_MAX_EXEC_TIME=1
-zstyle :prompt:pure:path color cyan
+zstyle :prompt:pure:path color 051
+zstyle :prompt:pure:prompt:success color 220
+zstyle :prompt:pure:prompt:error color 197
+zstyle :prompt:pure:git:branch color 035
+zstyle :prompt:pure:git:dirty color 168
+prompt pure
 
 # alternatively, no theme, custom prompt
 #setopt PROMPT_SUBST
@@ -11,7 +15,7 @@ zstyle :prompt:pure:path color cyan
 #RPROMPT="%(?.%F{83}?0.%F{202}?%?)%f %F{220}(%*)%f" 
 
 # LS_COLORS is used by GNU ls. LSCOLORS is used by BSD ls.
-export LS_COLORS='di=1;36:ln=35:so=32:pi=33:ex=36;44:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
+export LS_COLORS='di=1;36:ln=35:so=32:pi=33:ex=36;44:bd=30;46:cd=34;43:su=30;41:sg=31;46:tw=30;42:ow=30;43'
 # export LSCOLORS='Gxfxcxdxgeegedabagacad'
 
 # Use emacs keybindings even if our EDITOR is set to vi
@@ -59,19 +63,23 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 alias foundry="aws ec2 start-instances --instance-ids "i-045f918ab7c6d7e68" --profile admin"
 alias stopfoundry="aws ec2 stop-instances --instance-ids "i-045f918ab7c6d7e68" --profile admin"
 ## backing up Obsidian vaults to S3
-alias bkobs="tar czvf ~/auza.tar.gz ~/Documents/Auza/ && tar czvf ~/personal.tar.gz ~/Documents/Personal && aws s3 mv ~/auza.tar.gz s3://auza-main/ --profile admin && aws s3 mv ~/personal.tar.gz s3://auza-main/ --profile admin"
-## alias to open spotify and disown; will later create function for universal apps
-# always coloring ls 
-alias ls="ls --color=auto"
+alias bkobs="tar czvf ~/obsidian.tar.gz ~/Documents/Obsidian/ && aws s3 mv ~/obsidian.tar.gz s3://auza-main/ --profile admin"
+## always coloring ls 
+alias ls="ls -a --color=auto"
+## making it easier to track dotfiles on github
+alias config='/usr/bin/git --git-dir=/home/vinicius/.dotfiles/ --work-tree=/home/vinicius'
+## global alias for telegram
+alias -g telegram="telegram-desktop"
 
 export MANPAGER="most" # subbing man for most
 export MANROFFOPT=-c # fixing man colors 
 
 # syntax highligthing; fast-theme -l for list
-source ~/.zsh/fsh/fast-syntax-highlighting.plugin.zsh
+source ~/.config/fsh/fast-syntax-highlighting.plugin.zsh
 
-# LS_COLORS is used by GNU ls. LSCOLORS is used by BSD ls.
-# export LS_COLORS='di=1;36:ln=35:so=32:pi=33:ex=36;44:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
-# export LSCOLORS='Gxfxcxdxgeegedabagacad'
-alias config='/usr/bin/git --git-dir=/home/vinicius/.cfg/ --work-tree=/home/vinicius'
-alias config='/usr/bin/git --git-dir=/home/vinicius/.dotfiles/ --work-tree=/home/vinicius'
+## open apps from terminal
+op() {
+    nohup $1 & >/dev/null 2>&1
+}
+
+. "$HOME/.local/bin/env"
