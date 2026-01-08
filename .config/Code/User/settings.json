@@ -1,9 +1,15 @@
 {
-    "workbench.colorTheme": "Default Light+",
     "editor.minimap.enabled": false,
     "editor.fontSize": 16,
+    "editor.insertSpaces": true,
+    "editor.rulers": [80],
+    "editor.lineNumbers": "relative",
+    "workbench.colorTheme": "Monokai",
     "workbench.activityBar.location": "top",
     "diffEditor.ignoreTrimWhitespace": false,
+    "git.autofetch": true,
+    "files.hotExit": "onExitAndWindowClose",
+    "files.autoSave": "afterDelay",
     "terminal.integrated.env.windows": {
 
     },
@@ -15,28 +21,14 @@
         },
         "zsh": {
             "path": "/usr/bin/zsh"
-        },
-        "fish": {
-            "path": "fish"
-        },
-        "tmux": {
-            "path": "tmux",
-            "icon": "terminal-tmux"
-        },
-        "pwsh": {
-            "path": "pwsh",
-            "icon": "terminal-powershell"
         }
     },
-    "python.languageServer": "None",
+    "python.languageServer": "Pylance",
     "[python]": {
-
-        "diffEditor.ignoreTrimWhitespace": false,
-        "editor.defaultColorDecorators": "never",
         "editor.formatOnType": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
         "editor.wordBasedSuggestions": "off",
         "editor.defaultFormatter": "charliermarsh.ruff",
-        "editor.formatOnSave": true,
     },
-    "python.defaultInterpreterPath": "~/projects/mit-6100l/.venv/bin/python3.14",
-}
+} 

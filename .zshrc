@@ -68,7 +68,11 @@ alias bkobs="tar czvf ~/obsidian.tar.gz ~/Documents/Obsidian/ && aws s3 mv ~/obs
 alias ls="ls -a --color=auto"
 ## making it easier to track dotfiles on github
 alias config='/usr/bin/git --git-dir=/home/vinicius/.dotfiles/ --work-tree=/home/vinicius'
-## global alias for telegram
+## cp, rm, mv aliases, adding verbose and interactive
+alias cp="cp -v"
+alias rm="rm -iv"
+alias mv="mv -iv"
+
 alias -g telegram="telegram-desktop"
 
 export MANPAGER="most" # subbing man for most
